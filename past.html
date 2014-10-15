@@ -1,4 +1,7 @@
 <!doctype html>
+<!--
+  This is an experiment of publishing with Polymer and Google Sheets.  The content for this page is entirely hosted by this spreadsheet:  http://goo.gl/6VT4NK
+-->
 <html>
 <head>
   <title>GDG Twin Cities Past Events</title>
@@ -8,11 +11,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   
   <script src="components/platform/platform.js"></script>
-  
   <link rel="import" href="components/paper-shadow/paper-shadow.html">
   <link rel="import" href="components/font-roboto/roboto.html">
-  <link rel="import" href="custom_components/organizer-list.html">
-  <link rel="import" href="custom_components/organizer-card.html">
   <link rel="import" href="custom_components/past-event-list.html">
   <link rel="import" href="footer.html">
   
@@ -23,141 +23,16 @@
       padding: 24px;
       -webkit-tap-highlight-color: rgba(0,0,0,0);
       -webkit-touch-callout: none;
-  }
-  core-header-panel {
-    height: 100%;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch; 
-  }
-  core-toolbar {
-    background: #03a9f4;
-    color: white;
-  }
- organizer-card {
-      margin: 30px;
-      width: 290px;
-  }
-.meetup-title{
-  font-size:1.5em;
-  font-weight: bold;
-}
-.meetingcontainer{
-  padding: 22px;
-}
-.datetime{
-  font-weight: bold;
-  float: left;
-}
-.sponsor{
-  margin-left: 20px;
-  float: left;
-}
-.aboutmeetup{
-  margin-bottom: 2.5em;
-}
-.topic {
-  margin-top: 0.7em;
-  padding:18px;
-}
-.topictitle{
-  font-size: larger;
-  font-weight: bold;
-}
-.speaker{
-
-}
-.speakername{
-  padding: 10px;
-  font-weight: bold;
-  float: left;
-}
-.speakertagline{
-  padding: 10px;
-  float: left;
-}
-.speakerlink{
-  padding: 10px;
-  float: left;
-}
-.lecturevid{
-  clear:both;
-}
-
-    
+      min-height: 1200px;
+    }  
   </style>
-  
 </head>
 <body unresolved>
-
-
-  <h1>Past Presentations</h1>
-
-<div>
-<div class="container" vertical layout>
-
-
-    <div class="meetingcontainer">
-      <paper-shadow z="3">
-        <div class="aboutmeetup">
-          <div class="meetup-title">Exploring NFC on Android & Open workshop.</div>
-          <div class="datetime">Oct 7th, 2014 - Code 42, Minneapolis</div>
-          <div class="sponsor">
-            Sponsored by <a href="http://code42.com" target="_top"><img class="featurette-image img-responsive" src="images/partners/code42.svg" style="height: 1em" > Code 42</a> (They're hiring!)
-          </div>
-        </div>
-
-        <div class="topic">
-          <paper-shadow z="1">
-          <div class="topictitle">Exploring NFC on Android</div>
-          <div class="speaker">
-            <div class="speakername">Sean Weiser</div>
-            <div class="speakertagline">Android Developer at Livefront</div>
-            <div class="speakerlink"><a href="http://livefront.com/people/" target="_top">http://livefront.com/people/</a></div>
-          </div>
-            <div class="lecturevid">
-              <a href="https://www.youtube.com/watch?v=rHDQoBA_E8o">
-                <img src="https://getfavicon.appspot.com/http://www.youtube.com" alt="ico" width="16" height="16" /> 
-                Watch the talk on YouTube
-                </a>
-             </div>
-          <div class="description">
-          </div>
-          </paper-shadow>
-        </div><!-- END TOPIC -->
-
-        <div class="topic">
-          <paper-shadow z="1">
-          <div class="topictitle">Open Workshop</div>
-          <div class="speaker">
-            <div class="speakername">On your own</div>
-            <div class="speakertagline"></div>
-            <div class="speakerlink"></div>
-          </div>
-            <div class="lecturevid"></div>
-          <div class="description">
-            Bring a laptop and a project that you are working on.  Be ready to call it out at the begning and see who might be working on simlar projects or willing to lend a thoughtful hand.
-          </div>
-          </paper-shadow>
-        </div><!-- END TOPIC -->
-
-
-      </paper-shadow>
+  <div>
+    <div class="container" vertical layout>
+      <past-event-list></past-event-list>
     </div>
-
-    <past-event-list show="all"></past-event-list>
-
-    <p>&nbsp;</p>
-
-</div>
-
-</div>
-<div>
-            
-  <p>&nbsp;</p>
-  <p>&nbsp;</p>
-  <p>&nbsp;</p>
-</div>
-  <page-footer></page-footer>        
-  
+  </div>
+  <page-footer></page-footer>          
 </body>
 </html>
