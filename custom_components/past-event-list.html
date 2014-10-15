@@ -19,7 +19,6 @@
     }
     </style>
 
-<h2>PastEventsService</h2>
     <past-event-service id="service" pastevents="{{pastevents}}" ></past-event-service>
     
     <div horizontal  layout wrap>
@@ -37,7 +36,7 @@
             <speakername>{{topic.speakername}}</speakername>
             <speakertagline>{{topic.speakertitle}}</speakertagline>
             <speakerlink hidden?={{topic.hidespeakerlink}}><a href="{{topic.speakerlink}}" target="_top"><img src="https://getfavicon.appspot.com/{{topic.speakerlink}}" alt="ico" width="16" height="16" />{{topic.speakerlink}}</a></speakerlink>
-            <youtubeurl hidden?={{topic.hideyoutubelink}}><a href="{{topic.youtubeurl}}" target="_top"><img src="https://getfavicon.appspot.com/{{topic.youtubeurl}}" alt="ico" width="16" height="16" />Watch on YouTube</a></youtubeurl>
+            <lecturevid hidden?={{topic.hideyoutubelink}}><a href="{{topic.youtubeurl}}" target="_top"><img src="https://getfavicon.appspot.com/{{topic.youtubeurl}}" alt="ico" width="16" height="16" />Watch on YouTube</a></lecturevid>
             <description>{{topic.description}}</description>
             </past-event-topic>
             <p>&nbsp;</p>

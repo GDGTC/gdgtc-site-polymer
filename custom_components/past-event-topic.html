@@ -42,10 +42,13 @@ polyfill-next-selector { content: 'speakerlink'; }
  ::content speakerlink{
   padding: 10px;
 }
+.topicdetails{
+	clear:both;
+}
 
-polyfill-next-selector { content: '.details lecturevid'; }
-.details ::content lecturevid{
-  clear:both;
+polyfill-next-selector { content: '.topicdetails lecturevid'; }
+.topicdetails ::content lecturevid{
+	display: block;
 }
     </style>
 
@@ -57,7 +60,7 @@ polyfill-next-selector { content: '.details lecturevid'; }
             <content select="speakertagline"></content>
             <content select="speakerlink"></content>
           </div>
-          <div class="details">
+          <div class="topicdetails">
 	          <content select="lecturevid"></content>
 	          <content select="description"></content>
           </div>
