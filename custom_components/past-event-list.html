@@ -1,0 +1,57 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="past-event-service.html">
+<link rel="import" href="past-event-card.html">
+
+<polymer-element name="past-event-list" attributes="show">
+  <template>
+    <style>
+    :host {
+      display: block;
+      width: 100%;
+    }
+    past-event-card{
+      margin-bottom: 30px;
+    }
+    organizer-card {
+      margin: 30px;
+      width: 290px;
+    }
+    </style>
+
+<h2>PastEventsService</h2>
+    <past-event-service id="service" pastevents="{{pastevents}}" ></past-event-service>
+    
+    <div horizontal  layout wrap>
+      <template repeat="{{event in pastevents.events}}" topics="{{event.topics}}" pastevents="{{pastevents}}">
+        <past-event-card sponsorlink={{event.sponsorlink}}>
+          <meetup-title>{{event.title}}</meetup-title>
+          <location>{{event.locationname}}</location>
+          <datetime>{{event.date}}</datetime>
+          <sponsor>{{event.sponsor}}</sponsor>
+        </past-event-card>
+
+        <topiccontent>
+          <template repeat="{{topic in event.topics}}" >
+            <h2>{{topic.title}}</h2>
+            </template>
+            </topiccontent>
+      </template>
+    </div>
+
+  </template>
+
+  <script>
+  Polymer({
+    ready: function() {
+         // console.log(this.pastevents.topics);
+         // for (var i = 0; i < this.pastevents.topics.length; ++i) {
+         //   console.log(this.pastevents.topics[i]);
+         // }
+       },
+     whatTopics: function(topics) {
+      // no service backend, just log the change
+      console.log(topics);
+    }
+      });
+  </script>
+</polymer-element>

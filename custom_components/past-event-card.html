@@ -1,0 +1,82 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/core-icon-button/core-icon-button.html">
+<link rel="import" href="../components/paper-shadow/paper-shadow.html">
+
+<link rel="import" href="past-event-topic.html">
+
+<polymer-element name="past-event-card" attributes="sponsorlink topics pastevents">
+  <template>
+    <style>
+    :host {
+      display: block;
+      position: relative;
+      background-color: white;
+      padding: 20px;
+      width: 100%;
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+    .card-header {
+      margin-bottom: 10px;
+    }
+    
+    .wherewhen{float: left;}
+
+    polyfill-next-selector { content: '.aboutmeetup meetup-title'; }
+    .aboutmeetup ::content meetup-title{
+      font-size:1.5em;
+      font-weight: bold;
+    }
+
+
+    </style>
+
+<!--
+       <paper-shadow z="3">
+        <div class="card-header" layout horizontal center>
+          <a href="https://plus.google.com/+{{gplusid}}" target="_new"><content select="img"></content></a>
+          <content select="h2"></content>
+        </div>
+        <content></content>
+      </paper-shadow>
+
+ -->
+
+      <paper-shadow z="3">
+      <div>
+        <div class="aboutmeetup" layout vertical center>
+          <content select="meetup-title"></content>
+          <div class="wherewhen" layout hoizontal center>
+            <content select="datetime"></content>
+            at
+            <content select="location"></content>
+            <div class="sponsordiv">Sponsored by <a href="{{sponsorlink}}" target="_top"><img src="https://getfavicon.appspot.com/{{sponsorlink}}" alt="ico" width="16" height="16" /> <content select="sponsor"></content></a></div>
+          </div>
+        </div>
+
+        <content select="topiccontent"></content>
+
+</div>
+      </paper-shadow>
+
+
+
+
+
+
+  </template>
+  <script>
+  Polymer({
+    ready: function() {
+         
+         for (var i = 0; i < this.attributes.length; ++i) {
+           console.log(this.attributes[i]);
+         }
+       },
+     whatTopics: function(topics) {
+      // no service backend, just log the change
+      console.log(topics);
+    }
+  });
+  </script>
+</polymer-element>

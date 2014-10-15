@@ -1,0 +1,81 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/core-ajax/core-ajax.html">
+<!-- 
+  `<post-service>` provides an API for a fake service -- 
+  _unquote_, the read-only social networking service!
+
+  Provides a very simple API: `posts` returns the list of posts.
+  `setFavorite` pretends to persist a user's favorite choice.
+
+  @element post-service
+  @demo 
+  @homepage http://www.polymer-project.org/docs/start/tutorial.html
+-->
+
+<!--
+  An array of post objects, with the following format:
+
+{
+  Sheet1: [
+    {
+      Date: "2014-10-07T05:00:00.000Z",
+      Title: "Exploring NFC on Android & Open Workshop",
+      LocationName: "Code 42, Minneapolis",
+      Sponsor: "Code 42"
+    },
+    {
+      Date: "2014-09-04T05:00:00.000Z",
+      Title: "Chrome Apps and Custom Android Views",
+      LocationName: "Agosto Inc, Minneapolis",
+      Sponsor: "Agosto Inc."
+    }
+    ]
+}  
+  @attribute pastevents
+  @type Array
+  @default []
+-->
+<polymer-element name="past-event-service" attributes="pastevents topics">
+  <template>
+    <style>
+    :host {
+      display: none;
+    }
+    </style>
+    <core-ajax id="ajax"
+      auto
+      url="https://script.google.com/macros/s/AKfycbzCqr6a8j2dmpW33DZrKSgoAKRQ7TEK9lWx0Ypampkk_DdXL1lw/exec?id=1SpY7hSSi537O-z4-w5EMsDmHrxMTPStFIc5pamRGfLU"
+      on-core-response="{{sheetLoaded}}"
+      handleAs="json">
+    </core-ajax>
+  </template>
+  <script>
+  Polymer('past-event-service', {
+    created: function() {
+      this.pastevents = new Object();
+      this.topics = [];
+//      this.pastevets.Mer;
+    },
+    matchTopic: function(element,id){
+      return element.eventid == id;
+    },
+    sheetLoaded: function() {
+      // Make a copy of the loaded data
+      this.pastevents = this.$.ajax.response; // DO NOT CHANGE SHEET NAME  this will then find nothing
+      for(var i = 0; i < this.pastevents.events.length; i++){
+        this.pastevents.events[i].topics = [];
+        var uid = this.pastevents.events[i].uid;
+        for(var x = 0; x < this.pastevents.topics.length; x++){
+          if (this.pastevents.topics[x].eventid == this.pastevents.events[i].uid){
+            this.pastevents.events[i].topics.push(this.pastevents.topics[x]);
+          }
+        }
+        // var topics =  this.pastevents.topics.filter(function (el,uid) {  return el.eventid == uid;})
+        // this.pastevents.events[i].topics = topics;
+      }
+
+      this.topics = this.pastevents.topics;
+    }
+  });
+  </script>
+</polymer-element>
