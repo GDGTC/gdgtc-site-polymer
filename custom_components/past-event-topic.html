@@ -1,17 +1,71 @@
-'<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/polymer/polymer.html">
 <link rel="import" href="../components/core-icon-button/core-icon-button.html">
 <link rel="import" href="../components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../components/font-roboto/roboto.html">
 
 
 <polymer-element name="past-event-topic">
   <template>
-    <style>
+<style>
+.topic{
+  font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;	
+}
+:host {
+  font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+  display: block;
+  position: relative;
+}
+.topic {
+	margin-top: 0.7em;
+  padding:18px;
+}
+
+polyfill-next-selector { content: 'topictitle'; }
+ ::content topictitle {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.speaker{
+
+}
+polyfill-next-selector { content: 'speakername'; }
+ ::content speakername{
+  padding: 10px;
+  font-weight: bold;
+  float: left;
+}
+polyfill-next-selector { content: 'speakertagline'; }
+ ::content speakertagline{
+  padding: 10px;
+}
+polyfill-next-selector { content: 'speakerlink'; }
+ ::content speakerlink{
+  padding: 10px;
+}
+
+polyfill-next-selector { content: '.details lecturevid'; }
+.details ::content lecturevid{
+  clear:both;
+}
     </style>
-      <h2>HI</h2>
+
+       <div class="topic">
+          <paper-shadow z="1">
+          <content select="topictitle"></content>
+          <div class="speaker" layout horizontal center>
+          	<content select="speakername"></content>
+            <content select="speakertagline"></content>
+            <content select="speakerlink"></content>
+          </div>
+          <div class="details">
+	          <content select="lecturevid"></content>
+	          <content select="description"></content>
+          </div>
+          </paper-shadow>
+        </div><!-- END TOPIC -->
 
   </template>
   <script>
-  Polymer({
-  });
+  Polymer({});
   </script>
 </polymer-element>
