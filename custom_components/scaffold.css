@@ -87,10 +87,10 @@ polyfill-next-selector { content: '.sourceButton';}
 
 polyfill-next-selector { content: '.sourceButton:not(.fallback)';}
 ::content .sourceButton:not(.fallback) {
-  background-color: #fcfcfc;
-  color: #666464;
+  background-color: #d23f31;
+  color: #fff;
   bottom: -28px;
-  right: 24px;
+  left: -47px;
 }
 
 polyfill-next-selector { content: '.sourceButton.fallback';}
@@ -154,4 +154,12 @@ polyfill-next-selector { content: '#drawerPanel:not([narrow]) .menuButton';}
   bottom: 0;
   left: 0;
   overflow: auto;
+}
+
+
+#paper_fab_narrow {
+  top: 1.8em;
+  position: absolute;
+  right: 1em;
+  z-index: 1;
 }

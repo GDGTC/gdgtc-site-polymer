@@ -40,6 +40,16 @@ of the scaffold.
 <link rel="import" href="../components/core-menu/core-submenu.html">
 <link rel="import" href="../components/core-icon-button/core-icon-button.html">
 
+<link rel="import" href="../components/core-icons/core-icons.html">
+<link rel="import" href="../components/core-icons/social-icons.html">
+
+
+<!--PAPER-->
+<link rel="import" href="../components/paper-fab/paper-fab.html">
+<link rel="import" href="../components/paper-item/paper-item.html">
+
+
+
 <polymer-element name="sampler-scaffold" attributes="label responsiveWidth">
 <template>
 
@@ -54,12 +64,12 @@ of the scaffold.
           <core-icon-button class="menuButton fallback" icon="menu"></core-icon-button>
         </content>
         <div hidden?="{{!narrow}}">{{item.label}}</div>
-        <content select=".sourceButton" on-tap="{{viewSourceAction}}">
-          <core-icon-button class="sourceButton fallback" icon="launch"></core-icon-button>
+
+        <content select=".sourceButton" >
+          <core-icon-button class="sourceButton fallback" icon="add-circle"></core-icon-button>
         </content>
 
-      </core-toolbar>
-      
+      </core-toolbar>    
       <div id="card" on-transitionend="{{cardTransitionDone}}" hidden?="{{!item}}">
 
         <div class="element-label" hidden?="{{narrow}}">{{item.label}}</div>
