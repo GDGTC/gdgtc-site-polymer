@@ -7,9 +7,11 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   
-  <script src="components/platform/platform.js"></script>
+  <script src="components/webcomponentsjs/webcomponents.js"></script>
   
   <link rel="import" href="components/font-roboto/roboto.html">
+  <link rel="import" href="components/core-animation/core-animation.html">
+  <link rel="import" href="components/core-animation/core-animation-group.html">
   <link rel="import" href="footer.html">
   
   <style shim-shadowdom>
@@ -29,6 +31,28 @@
 </head>
 <body unresolved>
   
+   <core-animation id="fadeout" duration="500">
+  <core-animation-keyframe>
+    <core-animation-prop name="opacity" value="1"></core-animation-prop>
+  </core-animation-keyframe>
+  <core-animation-keyframe>
+    <core-animation-prop name="opacity" value="0"></core-animation-prop>
+  </core-animation-keyframe>
+  <core-animation-keyframe>
+    <core-animation-prop name="display" value="none"></core-animation-prop>
+  </core-animation-keyframe>
+</core-animation>
+
+<div id="el" onclick="fademeout();">Fade me out</div>
+<script>
+function fademeout() {
+  var animation = document.getElementById('fadeout');
+  animation.target = document.getElementById('el');
+  animation.play();
+}
+
+</script>
+
 
             <!-- Main hero unit for a primary marketing message or call to action -->
             <div class="hero-unit">

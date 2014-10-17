@@ -15,7 +15,7 @@
     "tests"
   ],
    "dependencies": {
-    "polymer": "Polymer/polymer#~0.4.2",
+    "polymer": "Polymer/polymer#master",
     "core-elements": "Polymer/core-elements#master",
     "paper-elements": "Polymer/paper-elements#master",
     "paper-fab": "Polymer/paper-fab#master",
