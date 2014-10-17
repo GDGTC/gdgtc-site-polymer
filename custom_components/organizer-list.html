@@ -11,7 +11,7 @@
     }
     organizer-card {
       margin: 30px;
-      width: 290px;
+      width: 420px;
     }
     </style>
 
@@ -20,7 +20,8 @@
     <div horizontal  layout wrap>
       <template repeat="{{post in posts}}">
         <organizer-card
-          gplusid={{post.gplusid}}
+          favorite="{{post.favorite}}"
+          on-favorite-tap="{{handleFavorite}}"
           hidden?="{{show == 'favorites' && !post.favorite}}">
           <img src="{{post.avatar}}" width="70" height="70">
           <h2>{{post.username}}</h2>

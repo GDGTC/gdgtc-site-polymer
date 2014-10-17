@@ -41,6 +41,7 @@ polyfill-next-selector { content: 'speakertagline'; }
 polyfill-next-selector { content: 'speakerlink'; }
  ::content speakerlink{
   padding: 10px;
+  clear: both;
 }
 .topicdetails{
 	clear:both;
@@ -55,7 +56,7 @@ polyfill-next-selector { content: '.topicdetails lecturevid'; }
        <div class="topic">
           <paper-shadow z="1">
           <content select="topictitle"></content>
-          <div class="speaker" layout horizontal center>
+          <div class="speaker" layout horizontal center wrap>
           	<content select="speakername"></content>
             <content select="speakertagline"></content>
             <content select="speakerlink"></content>

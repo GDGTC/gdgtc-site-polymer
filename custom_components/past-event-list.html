@@ -56,34 +56,6 @@
          //   console.log(this.pastevents.topics[i]);
          // }
        },
-    ready: function() {
-      this.boundResizeFrame = this.resizeFrame.bind(this);
-      window.addEventListener('resize', this.updateFrameHeight.bind(this));
-    },
-    resizeFrame: function() {
-      this.job('resizeFrame', function() {
-        this.updateFrameHeight();
-      });
-    },
-    updateFrameHeight: function() {
-      var frame = this.$.frame;
-      var doc = frame.contentDocument;
-      if (doc) {
-        var docElt = doc.documentElement;
-        // TODO(ffu); expose scroll info from header-panel
-        var pos = this.$.mainHeaderPanel.$.mainContainer.scrollTop;
-        frame.style.height = 'auto';
-        frame.style.height = docElt.scrollHeight + 'px';
-        if (doc.body) {
-          var s = doc.body.style;
-          s.overflow = 'hidden';
-          // to avoid the 'blinking bug'
-          // https://code.google.com/p/chromium/issues/detail?id=332024
-          s.webkitTransform = s.transform = 'translateZ(0)';
-        }
-        this.$.mainHeaderPanel.$.mainContainer.scrollTop = pos;
-      }
-    },
          whatTopics: function(topics) {
       // no service backend, just log the change
       console.log(topics);
