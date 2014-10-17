@@ -1,0 +1,20 @@
+{
+  "name": "paper-dialog",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "core-overlay": "Polymer/core-overlay#master",
+    "core-transition": "Polymer/core-transition#master",
+    "paper-shadow": "Polymer/paper-shadow#master"
+  },
+  "homepage": "https://github.com/Polymer/paper-dialog",
+  "_release": "1dd3533d8e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "1dd3533d8e827071f2d683e2a21375d3053e4be8"
+  },
+  "_source": "git://github.com/Polymer/paper-dialog.git",
+  "_target": "master",
+  "_originalSource": "Polymer/paper-dialog"
+}

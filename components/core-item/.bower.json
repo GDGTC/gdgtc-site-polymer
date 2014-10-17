@@ -1,0 +1,18 @@
+{
+  "name": "core-item",
+  "private": true,
+  "dependencies": {
+    "core-icon": "Polymer/core-icon#master",
+    "core-icons": "Polymer/core-icons#master"
+  },
+  "homepage": "https://github.com/Polymer/core-item",
+  "_release": "9d71578cab",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "9d71578cabfcc2a40a065d275262f4fd93f95369"
+  },
+  "_source": "git://github.com/Polymer/core-item.git",
+  "_target": "master",
+  "_originalSource": "Polymer/core-item"
+}

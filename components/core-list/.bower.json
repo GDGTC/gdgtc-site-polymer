@@ -1,0 +1,26 @@
+{
+  "name": "core-list",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "core-selection": "Polymer/core-selection#master"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#master"
+  },
+  "ignore": [
+    "/*",
+    "!core-list.css",
+    "!core-list.html"
+  ],
+  "homepage": "https://github.com/Polymer/core-list",
+  "_release": "e602666ba9",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "e602666ba980b99d7fb6fc1d6f96cd8b45920a8e"
+  },
+  "_source": "git://github.com/Polymer/core-list.git",
+  "_target": "master",
+  "_originalSource": "Polymer/core-list"
+}
