@@ -36,9 +36,16 @@
     background: #03a9f4;
     color: white;
   }
- organizer-card {
-      margin: 30px;
-      width: 290px;
+  organizer-card {
+    margin: 30px;
+    width: 36%;
+  }
+
+  @media (min-width: 950px) and (max-width: 1200px) {
+    organizer-card {      width: 30%;   }
+  }
+  @media (max-width: 950px)  {
+    organizer-card {   display: block; width: 100%;}
   }
   
     
