@@ -2,6 +2,7 @@
 - http://livefront.com - http://livefront.com/join/
 - http://macalester.edu
 - [Macalester](http://www.macalester.edu/employmentservices/jobs/)
+- https://plus.google.com/+LloydCledwyn/posts/PnByxPNGgQM
 - https://developers.google.com/groups/
 - http://gdgtc.com
 - http://meetup.com/gdg-tc
