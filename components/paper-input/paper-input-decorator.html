@@ -30,14 +30,24 @@ Theming
 
 - `CoreStyle.g.paperInput.labelColor` - The inline label, floating label, error message and error icon color when the input does not have focus.
 - `CoreStyle.g.paperInput.focusedColor` - The floating label and the underline color when the input has focus.
-- `CoreStyle.g.paperInput.cursorColor` - The cursor color during the focus animation. Typically this is the same as `focusedColor`.
-- `CoreStyle.g.paperInput.invalidColor` - The error message, the error icon, the cursor, the floating label and the underline's color when the input is invalid and has focus.
+- `CoreStyle.g.paperInput.invalidColor` - The error message, the error icon, the floating label and the underline's color when the input is invalid and has focus.
 
 To add custom styling to only some elements, use these selectors:
 
     paper-input-decorator /deep/ .label-text,
     paper-input-decorator /deep/ .error {
         /* inline label,  floating label, error message and error icon color when the input is unfocused */
+        color: green;
+    }
+
+    paper-input-decorator /deep/ ::-webkit-input-placeholder {
+        /* platform specific rules for placeholder text */
+        color: green;
+    }
+    paper-input-decorator /deep/ ::-moz-placeholder {
+        color: green;
+    }
+    paper-input-decorator /deep/ :-ms-input-placeholder {
         color: green;
     }
 
@@ -56,20 +66,14 @@ To add custom styling to only some elements, use these selectors:
         background-color: orange;
     }
 
-    paper-input-decorator /deep/ .cursor {
-        /* cursor color during the focus transition */
-        background-color: orange;
-    }
-
     paper-input-decorator.invalid[focused] /deep/ .floated-label .label-text,
     paper-input-decorator[focused] /deep/ .error {
         /* floating label, error message nad error icon color when the input is invalid and focused */
         color: salmon;
     }
 
-    paper-input-decorator.invalid /deep/ .focused-underline,
-    paper-input-decorator.invalid /deep/ .cursor {
-        /* line and cursor color when the input is invalid and focused */
+    paper-input-decorator.invalid /deep/ .focused-underline {
+        /* line and color when the input is invalid and focused */
         background-color: salmon;
     }
 
@@ -77,6 +81,36 @@ Form submission
 ---------------
 
 You can use inputs decorated with this element in a `form` as usual.
+
+Validation
+----------
+
+Because you provide the `input` element to `paper-input-decorator`, you can use any validation library
+or the <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation">HTML5 Constraints Validation API</a>
+to implement validation. Set the `isInvalid` attribute when the input is validated, and provide an
+error message in the `error` attribute.
+
+Example:
+
+    <paper-input-decorator id="paper1" error="Value must start with a number!">
+        <input id="input1" is="core-input" pattern="^[0-9].*">
+    </paper-input-decorator>
+    <button onclick="validate()"></button>
+    <script>
+        function validate() {
+            var decorator = document.getElementById('paper1');
+            var input = document.getElementById('input1');
+            decorator.isInvalid = !input.validity.valid;
+        }
+    </script>
+
+Example to validate as the user types:
+
+    <template is="auto-binding">
+        <paper-input-decorator id="paper2" error="Value must start with a number!" isInvalid="{{!$.input2.validity.valid}}">
+            <input id="input2" is="core-input" pattern="^[0-9].*">
+        </paper-input-decorator>
+    </template>
 
 Accessibility
 -------------
@@ -102,6 +136,18 @@ conflict with this element.
   color: {{g.paperInput.labelColor}};
 }
 
+::-webkit-input-placeholder {
+  color: {{g.paperInput.labelColor}};
+}
+
+::-moz-placeholder {
+  color: {{g.paperInput.labelColor}};
+}
+
+:-ms-input-placeholder {
+  color: {{g.paperInput.labelColor}};
+}
+
 .unfocused-underline {
   background-color: {{g.paperInput.labelColor}};
 }
@@ -114,24 +160,19 @@ conflict with this element.
   background-color: {{g.paperInput.focusedColor}};
 }
 
-.cursor {
-  background-color: {{g.paperInput.cursorColor}};
-}
-
-:host(.invalid) .floated-label,
+:host(.invalid) .floated-label .label-text,
 .error {
   color: {{g.paperInput.invalidColor}};
 }
 
 :host(.invalid) .unfocused-underline,
-:host(.invalid) .focused-underline,
-:host(.invalid) .cursor {
+:host(.invalid) .focused-underline {
   background-color: {{g.paperInput.invalidColor}};
 }
 
 </core-style>
 
-<polymer-element name="paper-input-decorator" layout vertical attributes="label floatingLabel labelVisible error"
+<polymer-element name="paper-input-decorator" layout vertical
   on-transitionEnd="{{transitionEndAction}}" on-webkitTransitionEnd="{{transitionEndAction}}"
   on-input="{{inputAction}}"
   on-down="{{downAction}}">
@@ -148,12 +189,10 @@ conflict with this element.
 
     <div class="input-body" flex auto relative>
 
-      <div class="label" fit aria-hidden="true">
+      <div class="label" fit invisible aria-hidden="true">
         <!-- needed for floating label animation measurement -->
         <span id="labelText" class="label-text" invisible?="{{!_labelVisible}}" animated?="{{labelAnimated}}">{{label}}</span>
       </div>
-
-      <div class="cursor" invisible?="{{!cursorAnimated}}" animated?="{{cursorAnimated}}"></div>
 
       <content></content>
 
@@ -178,7 +217,6 @@ conflict with this element.
     var paperInput = CoreStyle.g.paperInput = CoreStyle.g.paperInput || {};
 
     paperInput.labelColor = '#757575';
-    paperInput.cursorColor = '#4059a9';
     paperInput.focusedColor = '#4059a9';
     paperInput.invalidColor = '#d34336';
 
@@ -205,6 +243,15 @@ conflict with this element.
          * @default false
          */
         floatingLabel: false,
+
+        /**
+         * Set to true to style the element as disabled.
+         *
+         * @attribute disabled
+         * @type boolean
+         * @default false
+         */
+        disabled: {value: false, reflect: true},
 
         /**
          * Use this property to override the automatic label visibility.
@@ -279,7 +326,7 @@ conflict with this element.
 
       animateFloatingLabel: function() {
         if (!this.floatingLabel || this.labelAnimated) {
-          return;
+          return false;
         }
 
         if (!this.$.labelText.cachedTransform) {
@@ -289,7 +336,7 @@ conflict with this element.
         // If there's still no cached transform, the input is invisible so don't
         // do the animation.
         if (!this.$.labelText.cachedTransform) {
-          return;
+          return false;
         }
 
         this.labelAnimated = true;
@@ -310,13 +357,32 @@ conflict with this element.
         } else {
           this.$.labelText.style.webkitTransform = this.$.labelText.cachedTransform;
           this.$.labelText.style.transform = this.$.labelText.cachedTransform;
+          this.input.placeholder = '';
         }
+
+        return true;
       },
 
       _labelVisibleChanged: function(old) {
         // do not do the animation on first render
         if (old !== undefined) {
-          this.animateFloatingLabel();
+          if (!this.animateFloatingLabel()) {
+            this.updateInputLabel(this.input, this.label);
+          }
+        }
+      },
+
+      labelVisibleChanged: function() {
+        if (this.labelVisible === 'true') {
+          this.labelVisible = true;
+        } else if (this.labelVisible === 'false') {
+          this.labelVisible = false;
+        }
+      },
+
+      labelChanged: function() {
+        if (this.input) {
+          this.updateInputLabel(this.input, this.label);
         }
       },
 
@@ -329,8 +395,10 @@ conflict with this element.
       },
 
       inputChanged: function(old) {
-        this.updateLabelVisibility(this.input.value);
-        this.updateInputLabel(this.input, this.label);
+        if (this.input) {
+          this.updateLabelVisibility(this.input.value);
+          this.updateInputLabel(this.input, this.label);
+        }
         if (old) {
           this.updateInputLabel(old, '');
         }
@@ -358,6 +426,11 @@ conflict with this element.
       },
 
       updateInputLabel: function(input, label) {
+        if (this._labelVisible) {
+          this.input.placeholder = this.label;
+        } else {
+          this.input.placeholder = '';
+        }
         if (label) {
           input.setAttribute('aria-label', label);
         } else {
@@ -393,10 +466,6 @@ conflict with this element.
         // Animations only run when the user interacts with the input
         this.underlineAnimated = true;
 
-        // Cursor animation only runs if the input is empty
-        if (this._labelVisible) {
-          this.cursorAnimated = true;
-        }
         // Handle interrupted animation
         this.async(function() {
           this.transitionEndAction();
@@ -405,8 +474,10 @@ conflict with this element.
 
       transitionEndAction: function() {
         this.underlineAnimated = false;
-        this.cursorAnimated = false;
         this.labelAnimated = false;
+        if (this._labelVisible) {
+          this.input.placeholder = this.label;
+        }
       }
 
     });

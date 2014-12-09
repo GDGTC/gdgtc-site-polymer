@@ -8,11 +8,11 @@
     "core-a11y-keys": "Polymer/core-a11y-keys#master"
   },
   "homepage": "https://github.com/Polymer/paper-slider",
-  "_release": "c30fbd8aed",
+  "_release": "32c494f5e9",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "c30fbd8aed8ddd5a72442f3279747e55cd505993"
+    "commit": "32c494f5e9f5d8f6068b16ad528bf9fd81fa0c74"
   },
   "_source": "git://github.com/Polymer/paper-slider.git",
   "_target": "master",

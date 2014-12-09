@@ -2,16 +2,17 @@
   "name": "paper-radio-group",
   "private": true,
   "dependencies": {
+    "core-a11y-keys": "Polymer/core-a11y-keys#master",
     "core-selector": "Polymer/core-selector#master",
     "font-roboto": "Polymer/font-roboto#master",
     "paper-radio-button": "Polymer/paper-radio-button#master"
   },
   "homepage": "https://github.com/Polymer/paper-radio-group",
-  "_release": "f20e562ef3",
+  "_release": "5204239558",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "f20e562ef31d78233696701393a91aa8a8463ec0"
+    "commit": "520423955868025296c6327e66730cd1534e0516"
   },
   "_source": "git://github.com/Polymer/paper-radio-group.git",
   "_target": "master",

@@ -4,14 +4,19 @@
   "dependencies": {
     "polymer": "Polymer/polymer#master",
     "core-icon": "Polymer/core-icon#master",
-    "paper-ripple": "Polymer/paper-ripple#master"
+    "core-icons": "Polymer/core-icons#master",
+    "core-selector": "Polymer/core-selector#master",
+    "font-roboto": "Polymer/font-roboto#master",
+    "paper-button": "Polymer/paper-button#master",
+    "paper-ripple": "Polymer/paper-ripple#master",
+    "paper-shadow": "Polymer/paper-shadow#master"
   },
   "homepage": "https://github.com/Polymer/paper-item",
-  "_release": "b846c3ad22",
+  "_release": "46f42a5546",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "b846c3ad22a3ef9a30f712b79a96132cb85e4beb"
+    "commit": "46f42a55461e0395d8b5d1a13c09ac4fa8698ae4"
   },
   "_source": "git://github.com/Polymer/paper-item.git",
   "_target": "master",

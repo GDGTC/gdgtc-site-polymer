@@ -5,11 +5,11 @@
     "polymer": "Polymer/polymer#master"
   },
   "homepage": "https://github.com/Polymer/core-header-panel",
-  "_release": "e688d5f74c",
+  "_release": "4c51682092",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "e688d5f74cb4efa3582dbd8ffcb8f5bf8a57fc2d"
+    "commit": "4c516820920c4669bef1c99ab8ec87b2e35f1cbc"
   },
   "_source": "git://github.com/Polymer/core-header-panel.git",
   "_target": "master",

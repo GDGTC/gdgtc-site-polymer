@@ -10,7 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>core-input basic tests</title>
+  <title>core-input a11y tests</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <script src="../../webcomponentsjs/webcomponents.js"></script>
@@ -29,27 +29,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     var i1 = document.getElementById('input1');
     var i2 = document.getElementById('input2');
 
-    suite('accessibility', function() {
-
-      test('aria-label set to placeholder', function(done) {
-        assert.strictEqual('label', i1.getAttribute('aria-label'));
-        i1.placeholder = 'new label';
-        asyncPlatformFlush(function() {
-          assert.strictEqual('new label', i1.getAttribute('aria-label'));
-          done();
-        });
+    test('aria-label set to placeholder', function(done) {
+      assert.strictEqual('label', i1.getAttribute('aria-label'));
+      // test failing on polyfill due to https://github.com/Polymer/webcomponentsjs-dev/issues/13
+      // i1.placeholder = 'new label';
+      i1.setAttribute('placeholder', 'new label');
+      flush(function() {
+        assert.strictEqual(i1.getAttribute('aria-label'), 'new label');
+        done();
       });
+    });
 
-      test('aria-disabled is set', function(done) {
-        assert.ok(i2.hasAttribute('aria-disabled'));
-        i2.removeAttribute('disabled');
-        asyncPlatformFlush(function() {
-          assert.ok(!i2.hasAttribute('aria-disabled'));
-          done();
-        });
+    test('aria-disabled is set', function(done) {
+      assert.ok(i2.hasAttribute('aria-disabled'));
+      i2.removeAttribute('disabled');
+      flush(function() {
+        assert.ok(!i2.hasAttribute('aria-disabled'));
+        done();
       });
+    });
 
-    })
   </script>
 
 </body>

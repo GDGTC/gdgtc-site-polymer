@@ -4,14 +4,14 @@
     "polymer": "Polymer/polymer#master"
   },
   "devDependencies": {
-    "web-component-tester": "Polymer/web-component-tester#^1.0.0"
+    "web-component-tester": "Polymer/web-component-tester#^1.1.4"
   },
   "homepage": "https://github.com/Polymer/core-input",
-  "_release": "2c506c604c",
+  "_release": "d9e5679f5d",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "2c506c604c6ca84362dc5520a88c6a5a332b84a5"
+    "commit": "d9e5679f5dbbce7cd589efb2d7cbaf4000e69df8"
   },
   "_source": "git://github.com/Polymer/core-input.git",
   "_target": "master",

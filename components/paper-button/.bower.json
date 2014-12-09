@@ -8,12 +8,15 @@
     "paper-ripple": "Polymer/paper-ripple#master",
     "paper-shadow": "Polymer/paper-shadow#master"
   },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^1.1.4"
+  },
   "homepage": "https://github.com/Polymer/paper-button",
-  "_release": "82eaf56739",
+  "_release": "d78d4a7474",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "82eaf56739ca08470e57969231ebfb691f83d506"
+    "commit": "d78d4a7474ea23ceae58c77fe3805c391085654b"
   },
   "_source": "git://github.com/Polymer/paper-button.git",
   "_target": "master",

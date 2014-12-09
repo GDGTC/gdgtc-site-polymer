@@ -19,6 +19,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link href="../polymer/polymer.html" rel="import">
 <link href="../core-focusable/core-focusable.html" rel="import">
+<link href="../paper-ripple/paper-ripple.html" rel="import">
 
 <polymer-element name="paper-button-base" tabindex="0">
 
@@ -27,8 +28,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   (function() {
 
     var p = {
-
-      z: 1,
 
       eventDelegates: {
         down: 'downAction'
@@ -74,12 +73,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       adjustZ: function() {
+        if (!this.$.shadow) {
+          return;
+        }
         if (this.active) {
-          this.z = 2;
+          this.$.shadow.setZ(2);
         } else if (this.disabled) {
-          this.z = 0;
+          this.$.shadow.setZ(0);
         } else {
-          this.z = 1;
+          this.$.shadow.setZ(1);
         }
       },
 

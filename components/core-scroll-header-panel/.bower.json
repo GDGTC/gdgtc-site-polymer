@@ -6,14 +6,15 @@
     "core-icon-button": "Polymer/core-icon-button#master",
     "core-input": "Polymer/core-input#master",
     "core-media-query": "Polymer/core-media-query#master",
-    "core-toolbar": "Polymer/core-toolbar#master"
+    "core-toolbar": "Polymer/core-toolbar#master",
+    "core-resizable": "Polymer/core-resizable#master"
   },
   "homepage": "https://github.com/Polymer/core-scroll-header-panel",
-  "_release": "cc24ce8b56",
+  "_release": "04713eba06",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "cc24ce8b56a88c914dba5d8ef59ca25aa50dd142"
+    "commit": "04713eba065ffdd6f49de929ed1470ec79620159"
   },
   "_source": "git://github.com/Polymer/core-scroll-header-panel.git",
   "_target": "master",

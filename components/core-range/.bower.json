@@ -6,11 +6,11 @@
     "core-input": "Polymer/core-input#master"
   },
   "homepage": "https://github.com/Polymer/core-range",
-  "_release": "61e105cc37",
+  "_release": "b11d3cc8bc",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "61e105cc372ca98c6df750f4069ba0491a1d0f5e"
+    "commit": "b11d3cc8bc8f414657a744812b2d0e6324e971cb"
   },
   "_source": "git://github.com/Polymer/core-range.git",
   "_target": "master",

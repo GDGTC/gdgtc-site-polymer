@@ -37,12 +37,11 @@ or, if you would prefer to do it in CSS, just give `html`, `body`, and `core-scr
     }
 
 `core-scroll-header-panel` works well with `core-toolbar` but can use any element 
-that represents a header by adding a `core-header` class to it.  Use the attribute 
-or class `content` to delineate the content section.
+that represents a header by adding a `core-header` class to it.
 
     <core-scroll-header-panel>
       <core-toolbar>Header</core-toolbar>
-      <div content>Content goes here...</div>
+      <div>Content goes here...</div>
     </core-scroll-header-panel>
 
 @group Polymer Core Elements
@@ -51,6 +50,7 @@ or class `content` to delineate the content section.
 -->
 
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../core-resizable/core-resizable.html">
 
 <polymer-element name="core-scroll-header-panel">
 <template>
@@ -59,7 +59,7 @@ or class `content` to delineate the content section.
 
   <div id="mainContainer">
   
-    <content id="mainContent" select="[content], .content"></content>
+    <content id="mainContent" select=":not(core-toolbar):not(.core-header)"></content>
     
   </div>
   
@@ -78,7 +78,7 @@ or class `content` to delineate the content section.
 <script>
 (function() {
 
-  Polymer('core-scroll-header-panel', {
+  Polymer(Polymer.mixin({
     
     /**
      * Fired when the content has been scrolled.
@@ -185,7 +185,15 @@ or class `content` to delineate the content section.
     observe: {
       'headerMargin fixed': 'setup'
     },
-    
+
+    eventDelegates: {
+      'core-resize': 'measureHeaderHeight'
+    },
+
+    attached: function() {
+      this.resizeableAttachedHandler();
+    },
+
     ready: function() {
       this._scrollHandler = this.scroll.bind(this);
       this.scroller.addEventListener('scroll', this._scrollHandler);
@@ -193,6 +201,7 @@ or class `content` to delineate the content section.
     
     detached: function() {
       this.scroller.removeEventListener('scroll', this._scrollHandler);
+      this.resizeableDetachedHandler();
     },
     
     domReady: function() {
@@ -331,7 +340,7 @@ or class `content` to delineate the content section.
       }
     }
 
-  });
+  }, Polymer.CoreResizable));
   
   //determine proper transform mechanizm
   if (document.documentElement.style.transform !== undefined) {

@@ -12,11 +12,11 @@
     "web-component-tester": "Polymer/web-component-tester#^1.0.0"
   },
   "homepage": "https://github.com/Polymer/paper-input",
-  "_release": "170bf7e388",
+  "_release": "1d11698211",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "170bf7e3889fe47d3e132ac89cda7ec165c4621d"
+    "commit": "1d1169821176aa065d6862e2b5a7f8bf26c65442"
   },
   "_source": "git://github.com/Polymer/paper-input.git",
   "_target": "master",

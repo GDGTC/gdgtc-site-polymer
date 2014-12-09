@@ -24,7 +24,7 @@ core-selector > #drawer {
   height: 100%;
   will-change: transform;
   box-sizing: border-box;
-  -mox-box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
 .transition > #drawer {
@@ -144,4 +144,9 @@ polyfill-next-selector { content: ':host .narrow-layout > #main > [main]'; }
   right: 0;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
+}
+
+polyfill-next-selector { content: 'core-selector:not(.narrow-layout) [core-drawer-toggle]'; }
+core-selector:not(.narrow-layout) ::content [core-drawer-toggle] {
+  display: none;
 }

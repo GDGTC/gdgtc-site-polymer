@@ -34,7 +34,7 @@ between different views.
       <paper-tab>Tab 3</paper-tab>
     </paper-tabs>
   
-    <core-pages selected="{{selected}}>
+    <core-pages selected="{{selected}}">
       <div>Page 1</div>
       <div>Page 2</div>
       <div>Page 3</div>
@@ -82,6 +82,7 @@ To change the ink ripple color:
 
 <link rel="import" href="../core-selector/core-selector.html">
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../core-resizable/core-resizable.html">
 <link rel="import" href="paper-tab.html">
 
 <polymer-element name="paper-tabs" extends="core-selector" attributes="noink nobar noslide scrollable hideScrollButton" role="tablist" horizontal center layout>
@@ -109,7 +110,7 @@ To change the ink ripple color:
 </template>
 <script>
 
-  Polymer('paper-tabs', {
+  Polymer(Polymer.mixin({
     
     /**
      * If true, ink ripple effect is disabled.
@@ -164,6 +165,10 @@ To change the ink ripple color:
      * @default false
      */
     hideScrollButton: false,
+
+    eventDelegates: {
+      'core-resize': 'updateBar'
+    },
     
     activateEvent: 'tap',
     
@@ -182,10 +187,15 @@ To change the ink ripple color:
       this.async('scroll');
       this._tabsObserver.observe(this, {childList: true, subtree: true, characterData: true});
     },
+
+    attached: function() {
+      this.resizeableAttachedHandler();
+    },
     
     detached: function() {
       Polymer.removeEventListener(this.$.tabsContainer, 'trackx', this._trackxHandler);
       this._tabsObserver.disconnect();
+      this.resizeableDetachedHandler();
     },
     
     trackStart: function(e) {
@@ -267,6 +277,7 @@ To change the ink ripple color:
       r = this.selectedItem.getBoundingClientRect();
       this._sw = r.width;
       this._sl = r.left;
+      this._sOffsetLeft = this._sl - this._l; 
       
       if (this.noslide || old == null) {
         this.positionBarForSelected();
@@ -282,20 +293,27 @@ To change the ink ripple color:
         this._transitionCounter = 1;
       } else {
         s.width = this.calcPercent(oldRect.left + oldRect.width - this._sl) - m + '%';
-        s.left = this.calcPercent(this._sl - this._l) + m + '%';
+        s.left = this.calcPercent(this._sOffsetLeft) + m + '%';
         this._transitionCounter = 2;
       }
       if (this.scrollable) {
-        this.selectedItem.scrollIntoViewIfNeeded ? 
-            this.selectedItem.scrollIntoViewIfNeeded(false) : 
-            this.selectedItem.scrollIntoView();
+        this.scrollToSelectedIfNeeded();
+      }
+    },
+    
+    scrollToSelectedIfNeeded: function() {
+      var scrollLeft = this.$.tabsContainer.scrollLeft;
+      // scroll to selected if needed
+      if (this._sOffsetLeft + this._sw < scrollLeft || 
+          this._sOffsetLeft - scrollLeft > this.$.tabsContainer.offsetWidth) {
+        this.$.tabsContainer.scrollLeft = this._sOffsetLeft;
       }
     },
     
     positionBarForSelected: function() {
       var s = this.$.selectionBar.style;
       s.width = this.calcPercent(this._sw) + '%';
-      s.left = this.calcPercent(this._sl - this._l) + '%';
+      s.left = this.calcPercent(this._sOffsetLeft) + '%';
     },
     
     calcPercent: function(w) {
@@ -314,7 +332,7 @@ To change the ink ripple color:
       }
     }
     
-  });
+  }, Polymer.CoreResizable));
   
 </script>
 </polymer-element>

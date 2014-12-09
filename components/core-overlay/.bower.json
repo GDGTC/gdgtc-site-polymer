@@ -3,14 +3,15 @@
   "private": true,
   "dependencies": {
     "polymer": "Polymer/polymer#master",
-    "core-transition": "Polymer/core-transition#master"
+    "core-transition": "Polymer/core-transition#master",
+    "core-resizable": "Polymer/core-resizable#master"
   },
   "homepage": "https://github.com/Polymer/core-overlay",
-  "_release": "0700ad855c",
+  "_release": "349eb1d070",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "0700ad855cd62b9a4d68578a805f35a0dfaa9b64"
+    "commit": "349eb1d070373e50b47cfe1483854664b889549c"
   },
   "_source": "git://github.com/Polymer/core-overlay.git",
   "_target": "master",

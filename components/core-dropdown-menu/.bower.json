@@ -3,18 +3,25 @@
   "private": false,
   "dependencies": {
     "polymer": "Polymer/polymer#master",
+    "core-a11y-keys": "Polymer/core-a11y-keys#master",
+    "core-collapse": "Polymer/core-collapse#master",
     "core-dropdown": "Polymer/core-dropdown#master",
+    "core-focusable": "Polymer/core-focusable#master",
     "core-icon": "Polymer/core-icon#master",
     "core-icons": "Polymer/core-icons#master",
+    "core-icon-button": "Polymer/core-icon-button#master",
     "core-item": "Polymer/core-item#master",
     "core-menu": "Polymer/core-menu#master"
   },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^1.1.4"
+  },
   "homepage": "https://github.com/Polymer/core-dropdown-menu",
-  "_release": "91e79e3d15",
+  "_release": "36a61fb650",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "91e79e3d1544e4acf910d6545095d3c7b8a16974"
+    "commit": "36a61fb6503b0f7b23874ef425876200d90f7fa9"
   },
   "_source": "git://github.com/Polymer/core-dropdown-menu.git",
   "_target": "master",

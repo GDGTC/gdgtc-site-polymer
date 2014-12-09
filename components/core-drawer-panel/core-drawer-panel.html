@@ -41,6 +41,28 @@ Example:
       </core-header-panel>
     </core-drawer-panel>
 
+An element that should toggle the drawer will automatically do so if it's 
+given the `core-drawer-toggle` attribute.  Also this element will automatically
+be hidden in wide layout.
+
+Example:
+
+    <core-drawer-panel>
+      <core-header-panel drawer>
+        <core-toolbar>
+          <div>Application</div>
+        </core-toolbar>
+        <div> Drawer content... </div>
+      </core-header-panel>
+      <core-header-panel main>
+        <core-toolbar>
+          <core-icon-button icon="menu" core-drawer-toggle></core-icon-button>
+          <div>Title</div>
+        </core-toolbar>
+        <div> Main content... </div>
+      </core-header-panel>
+    </core-drawer-panel>
+
 To position the drawer to the right, add `rightDrawer` attribute.
 
     <core-drawer-panel rightDrawer>
@@ -87,6 +109,19 @@ To position the drawer to the right, add `rightDrawer` attribute.
      * @event core-responsive-change
      * @param {Object} detail
      * @param {boolean} detail.narrow true if the panel is in narrow layout.
+     */
+     
+    /**
+     * Fired when the selected panel changes.
+     * 
+     * Listening for this event is an alternative to observing changes in the `selected` attribute.
+     * This event is fired both when a panel is selected and deselected.
+     * The `isSelected` detail property contains the selection state.
+     * 
+     * @event core-select
+     * @param {Object} detail
+     * @param {boolean} detail.isSelected true for selection and false for deselection
+     * @param {Object} detail.item the panel that the event refers to
      */
 
     publish: {
@@ -158,16 +193,6 @@ To position the drawer to the right, add `rightDrawer` attribute.
       disableSwipe: false,
       
       /**
-       * This property specifies an attribute on elements that should
-       * toggle the drawer on tap.
-       *
-       * @attribute toggleAttribute
-       * @type string
-       * @default "core-drawer-toggle"
-       */
-      toggleAttribute: 'core-drawer-toggle',
-      
-      /**
        * If true, ignore `responsiveWidth` setting and force the narrow layout.
        *
        * @attribute forceNarrow
@@ -203,6 +228,10 @@ To position the drawer to the right, add `rightDrawer` attribute.
 
     // Whether the browser has support for the will-change CSS property.
     hasWillChange: true,
+    
+    // The attribute on elements that should toggle the drawer on tap, also 
+    // elements will automatically be hidden in wide layout.
+    toggleAttribute: 'core-drawer-toggle',
 
     created: function() {
       this.hasTransform = 'transform' in this.style;

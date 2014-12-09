@@ -3,15 +3,20 @@
   "private": true,
   "dependencies": {
     "polymer": "Polymer/polymer#master",
-    "core-selector": "Polymer/core-selector#master",
-    "paper-button": "Polymer/paper-button#master"
+    "paper-button": "Polymer/paper-button#master",
+    "core-icon": "Polymer/core-icon#master",
+    "core-icons": "Polymer/core-icons#master",
+    "paper-ripple": "Polymer/paper-ripple#master"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^1.1.4"
   },
   "homepage": "https://github.com/Polymer/paper-icon-button",
-  "_release": "482a49825d",
+  "_release": "c745e01ba8",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "482a49825d1f150046d9aeb4abfe3a039832c53a"
+    "commit": "c745e01ba885f60d3ba189088f9a05d7d03e7412"
   },
   "_source": "git://github.com/Polymer/paper-icon-button.git",
   "_target": "master",

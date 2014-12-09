@@ -36,6 +36,11 @@ Use `paper-input-decorator` directly, or see
 <a href="https://github.com/garstasio/ajax-form">`ajax-form`</a> for a possible solution
 to submitting a `paper-input`.
 
+Validation
+----------
+
+Use `paper-input-decorator` if you would like to implement validation.
+
 @group Paper Elements
 @element paper-input
 @homepage github.io
@@ -55,8 +60,8 @@ to submitting a `paper-input`.
     }
   </style>
 
-  <paper-input-decorator id="decorator" label="{{label}}" floatingLabel="{{floatingLabel}}" value="{{value}}">
-    <input is="core-input" value="{{value}}" committedValue="{{committedValue}}">
+  <paper-input-decorator id="decorator" label="{{label}}" floatingLabel="{{floatingLabel}}" value="{{value}}" disabled?="{{disabled}}">
+    <input is="core-input" value="{{value}}" committedValue="{{committedValue}}" on-change="{{changeAction}}" disabled?="{{disabled}}">
   </paper-input-decorator>
 
 </template>
@@ -86,6 +91,15 @@ to submitting a `paper-input`.
        */
       floatingLabel: false,
 
+      /**
+       * Set to true to style the element as disabled.
+       *
+       * @attribute disabled
+       * @type boolean
+       * @default false
+       */
+      disabled: {value: false, reflect: true},
+
       value: '',
 
       committedValue: ''
@@ -94,6 +108,13 @@ to submitting a `paper-input`.
 
     valueChanged: function() {
       this.$.decorator.updateLabelVisibility(this.value);
+    },
+
+    changeAction: function(e) {
+      if (!window.ShadowDOMPolyfill) {
+        // re-fire event that does not bubble across shadow roots
+        this.fire('change', null, this);
+      }
     }
 
   });

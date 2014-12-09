@@ -6,14 +6,15 @@
     "polymer": "Polymer/polymer#master",
     "core-focusable": "Polymer/core-focusable#master",
     "core-icon-button": "Polymer/core-icon-button#master",
-    "paper-fab": "Polymer/paper-fab#master"
+    "paper-fab": "Polymer/paper-fab#master",
+    "core-resizable": "Polymer/core-resizable#master"
   },
   "homepage": "https://github.com/Polymer/core-tooltip",
-  "_release": "5ea761cea2",
+  "_release": "3517ab3ed0",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "5ea761cea27145a829194a8187fa6d74449e230e"
+    "commit": "3517ab3ed09a420255458c843559a73c6e32d028"
   },
   "_source": "git://github.com/Polymer/core-tooltip.git",
   "_target": "master",

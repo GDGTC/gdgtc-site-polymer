@@ -3,14 +3,14 @@
   "private": true,
   "dependencies": {
     "polymer": "Polymer/polymer#master",
-    "web-animations-js": "web-animations/web-animations-js#master"
+    "web-animations-next": "web-animations/web-animations-js#1.0.1"
   },
   "homepage": "https://github.com/Polymer/core-animation",
-  "_release": "ceadb9f65d",
+  "_release": "ee909a53a4",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "ceadb9f65df85dec0823b5fe4c59fa48df86f349"
+    "commit": "ee909a53a4a50851b2a94a6205d72c66afd29e2d"
   },
   "_source": "git://github.com/Polymer/core-animation.git",
   "_target": "master",
