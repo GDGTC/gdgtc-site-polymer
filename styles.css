@@ -17,7 +17,7 @@ core-header-panel {
   -webkit-overflow-scrolling: touch; 
 }
 core-toolbar {
-  background: #03a9f4;
+  background: #7986cb;
   color: white;
 }
 organizer-card {
@@ -42,7 +42,7 @@ core-animated-pages > * {
 }
 
 body /deep/ core-toolbar {
-  background-color: #03a9f4;
+  background-color: #7986cb;
   color: #fff;
 }
 
