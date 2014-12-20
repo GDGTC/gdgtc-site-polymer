@@ -46,9 +46,9 @@
                  on-core-select="{{menuItemSelected}}" on-click="{{ajaxLoad}}">
         <template repeat="{{page, i in pages}}">
           <core-item hash="{{page.hash}}">
-			<a href="#{{page.hash}}"></a>
-			<core-icon icon="label{{route != page.hash ? '-outline' : ''}}"></core-icon> 
-			{{page.name}}
+      			<a href="#{{page.hash}}"></a>
+      			<core-icon icon="label{{route != page.hash ? '-outline' : ''}}"></core-icon> 
+      			{{page.name}}
           </core-item>
         </template>
       </core-selector>

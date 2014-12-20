@@ -55,8 +55,9 @@ core-menu > paper-item, core-menu > core-item {
   transition: all 300ms ease-in-out;
 }
 
-core-menu > paper-item.core-selected, core-menu > core-item.core-selected {
-  background: #e1f5fe;
+
+core-item.core-selected {
+background: #eee;
 }
 
 @media all and (max-width: 480px) {
