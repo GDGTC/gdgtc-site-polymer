@@ -61,9 +61,9 @@
       <a href="https://www.youtube.com/user/GDGTC"  target="_new" style="color:#eee"><core-icon-button icon="av:video-youtube"></core-icon-button></a>
     </core-toolbar>
 
-    <div layout horizontal center-center fit>
+    <div layout horizontal fit>
       <core-animated-pages id="pages" selected="{{route}}" valueattr="hash"
-                           transitions="slide-from-right">
+                           transitions="cross-fade-all">
         <template repeat="{{page, i in pages}}">
           <section hash="{{page.hash}}" layout vertical center-center>
             <div style="max-width:100%;">Loading...</div>
