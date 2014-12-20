@@ -21,11 +21,24 @@
     "paper-fab": "Polymer/paper-fab#master",
     "font-roboto": "Polymer/font-roboto#master",
     "core-icons": "Polymer/core-icons#master",
-    "flatiron-director": "PolymerLabs/flatiron-director#~0.4.0"
+    "flatiron-director": "PolymerLabs/flatiron-director#~0.4.0",
+    "meetup-element": "~0.0.3"
   },
   "resolutions": {
-    "polymer": "^0.5.0",
+    "polymer": "^0.5.1",
     "core-component-page": "^0.5.0",
-    "webcomponentsjs": "^0.5.0"
+    "webcomponentsjs": "^0.5.0",
+    "core-a11y-keys": "^0.5.0",
+    "core-icon": "^0.5.0",
+    "core-iconset": "master",
+    "core-icons": "master",
+    "core-iconset-svg": "master",
+    "core-label": "master",
+    "core-meta": "master",
+    "paper-ripple": "master",
+    "font-roboto": "master",
+    "paper-checkbox": "master",
+    "paper-radio-button": "master",
+    "platform": "^0.4.0"
   }
 }

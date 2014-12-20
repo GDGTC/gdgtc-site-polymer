@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <title>GDG Twin Cities</title>
   <link rel="icon" type="image/png" href="favicon.png">
-  <script src="components/webcomponentsjs/webcomponents.js"></script>
+  <script src="components/webcomponentsjs/webcomponents.min.js"></script>
   <link rel="import" href="spa-elements.html">
   <link rel="import" href="components/core-ajax/core-ajax.html">
+  <link rel="import" href="components/meetup-element/upcoming-meetups.html">
+  <link rel="import" href="components/meetup-element/meetup-service.html" />
   <link rel="stylesheet" href="styles.css" shim-shadowdom>
   <base target="_blank"></base>
   <style>
@@ -51,6 +53,23 @@
       			{{page.name}}
           </core-item>
         </template>
+
+      <div id="upcoming" >
+      <h3>upcoming meetups</h3>
+        <upcoming-meetups urlname="gdg-tc" sig="e0ff37957f1e552ccdbbefa8d1ea8b9840e7d3d6" sigid="9794564" hideDescription="hidden">
+        </upcoming-meetups>
+        </div>
+      <div id="name"><a href="{{meetup.event_url}}" >{{meetup.name}}</a></div>
+
+
+     <meetup-service id="meetupservice" meetups="{{meetups}}" urlname="{{urlname}}" sigid="{{sigid}}" sig="{{sig}}" ></meetup-service>
+
+    <div>
+      <template repeat="{{meetup in meetups}}">
+        {{meetup.name}}
+      </template>
+    </div>
+
       </core-selector>
     </nav>
 
