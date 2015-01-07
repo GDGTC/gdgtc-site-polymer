@@ -76,6 +76,12 @@ template.menuItemSelected = function(e, detail, sender) {
   }
 };
 
+template.toDate = function(input){
+  var m = (new Date(input)).getMonth() + 1;
+  var d = (new Date(input)).getDate();
+  return  m + "/" +  d;
+};
+
 template.ajaxLoad = function(e, detail, sender) {
   e.preventDefault(); // prevent link navigation.
 };

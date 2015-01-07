@@ -56,19 +56,13 @@
 
       <div id="upcoming" >
       <h3>upcoming meetups</h3>
-        <upcoming-meetups urlname="gdg-tc" sig="e0ff37957f1e552ccdbbefa8d1ea8b9840e7d3d6" sigid="9794564" hideDescription="hidden">
-        </upcoming-meetups>
+         <meetup-service id="meetupservice" meetups="{{meetups}}" urlname="gdg-tc" sigid="9794564" sig="e0ff37957f1e552ccdbbefa8d1ea8b9840e7d3d6" ></meetup-service>
+         <div>
+          <template repeat="{{meetup in meetups}}">
+           <div style="padding:5px;">{{meetup.time | toDate}}    <a href="{{meetup.event_url}}" target="_new">{{meetup.name}}</a></div>
+          </template>
         </div>
-      <div id="name"><a href="{{meetup.event_url}}" >{{meetup.name}}</a></div>
-
-
-     <meetup-service id="meetupservice" meetups="{{meetups}}" urlname="{{urlname}}" sigid="{{sigid}}" sig="{{sig}}" ></meetup-service>
-
-    <div>
-      <template repeat="{{meetup in meetups}}">
-        {{meetup.name}}
-      </template>
-    </div>
+        </div>
 
       </core-selector>
     </nav>
@@ -77,7 +71,7 @@
       <div flex>{{selectedPage.page.name}}</div>
       <a href="http://meetup.com/gdg-tc"><core-icon-button src="images/meetup.png" ></core-icon-button></a>
       <a href="http://google.com/+gdgtc"><core-icon-button src="images/gplus-red-signin_Short_base_44dp.png" ></core-icon-button></a>
-      <a href="https://www.youtube.com/user/GDGTC"  target="_new" style="color:#eee"><core-icon-button icon="av:video-youtube"></core-icon-button></a>
+      <a href="https://www.youtube.com/user/GDGTC"  target="_new" style="color:#eee"><core-icon-button icon="av:video-collection"></core-icon-button></a>
     </core-toolbar>
 
     <div layout horizontal fit>
