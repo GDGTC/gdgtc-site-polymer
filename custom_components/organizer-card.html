@@ -29,15 +29,21 @@
       border-radius: 50%;
       margin: 10px;
     }
+    polyfill-next-selector { content: '.card-wrapper'; }
+    .card-wrapper ::content {
+      border-radius: 50%;
+      margin: 10px;
+    }
     </style>
 
-      <paper-shadow z="3">
+        <div class="card-wrapper">
+        <paper-shadow z="3" fit>      </paper-shadow>
         <div class="card-header" layout horizontal center wrap>
           <a href="https://plus.google.com/+{{gplusid}}" target="_new"><content select="img"></content></a>
           <content select="h2"></content>
         </div>
         <content></content>
-      </paper-shadow>
+      </div>
 
   </template>
   <script>
