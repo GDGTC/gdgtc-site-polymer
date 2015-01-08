@@ -82,6 +82,24 @@ template.toDate = function(input){
   return  m + "/" +  d;
 };
 
+template.toDateDay= function(input){
+  var d = (new Date(input)).getDate();
+  return d;
+};
+template.toDateMon= function(input){
+  var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+  var m = monthNames[(new Date(input)).getMonth()];
+  return m ;
+};
+
+
+template.toDateDiv = function(input){
+  var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+  var m = monthNames[(new Date(input)).getMonth()];
+  var d = (new Date(input)).getDate();
+  return '<div class="date"><p>' + d + '<span>' + m + "</span></p></div>" ;
+};
+
 template.ajaxLoad = function(e, detail, sender) {
   e.preventDefault(); // prevent link navigation.
 };

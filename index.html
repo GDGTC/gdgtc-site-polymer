@@ -18,6 +18,56 @@
       overflow-y: auto;
       padding: 30px;
     }
+
+    .date {
+      float: left;
+      margin: 5px;
+  width: 30px; height: 40px;
+  background: #fcfcfc; 
+  background: linear-gradient(top, #fcfcfc 0%,#dad8d8 100%); 
+  background: -moz-linear-gradient(top, #fcfcfc 0%, #dad8d8 100%); 
+  background: -webkit-linear-gradient(top, #fcfcfc 0%,#dad8d8 100%); 
+  border: 1px solid #d2d2d2;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+}
+  .date p {
+    font-family: Helvetica, sans-serif;
+    font-size: 20px; text-align: center; color: #9e9e9e; 
+    -webkit-margin-before: 2px;
+  }
+  
+  .date p span {
+    background: #d10000; 
+    background: linear-gradient(top, #d10000 0%, #7a0909 100%);
+    background: -moz-linear-gradient(top, #d10000 0%, #7a0909 100%);
+    background: -webkit-linear-gradient(top, #d10000 0%, #7a0909 100%);
+    font-size: 11px; font-weight: bold; color: #fff; text-transform: uppercase;   
+    display: block;
+    border-top: 3px solid #a13838;
+    border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+    padding: 0px 0 3px 0;
+  }
+
+  .eventurl{
+    float: left;
+    cursor: pointer;
+  }
+
+@-moz-document url-prefix() {
+    .date {
+        padding: 16px 0 0 0;
+    }
+    .date p span {
+      padding: 9px 0 3px 0;
+    }
+}
   </style>
 </head>
 <body unresolved fullbleed>
@@ -54,17 +104,26 @@
           </core-item>
         </template>
 
+
+      </core-selector>
       <div id="upcoming" >
       <h3>upcoming meetups</h3>
          <meetup-service id="meetupservice" meetups="{{meetups}}" urlname="gdg-tc" sigid="9794564" sig="e0ff37957f1e552ccdbbefa8d1ea8b9840e7d3d6" ></meetup-service>
          <div>
+         <table>
           <template repeat="{{meetup in meetups}}">
-           <div style="padding:5px;">{{meetup.time | toDate}}    <a href="{{meetup.event_url}}" target="_new">{{meetup.name}}</a></div>
+          <tr>
+            <td>
+             <div class="date"><p>{{meetup.time | toDateDay}} <span>{{meetup.time | toDateMon}}</span></p></div>
+           </td>
+           <td>
+             <div class="eventurl" onclick="window.open('{{meetup.event_url}}')" >{{meetup.name}}</div>
+           </td>
+           </tr>
           </template>
+        </table>
         </div>
         </div>
-
-      </core-selector>
     </nav>
 
     <core-toolbar tool flex>
