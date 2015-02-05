@@ -11,6 +11,7 @@ template.pages = [
   {name: 'Home', hash: 'home', url: 'home.html'},
   {name: 'About', hash: 'about', url: 'about.html'},
   {name: 'Contact', hash: 'contact', url: 'contact.html'},
+  {name: 'Sponsor', hash: 'sponsor', url: 'sponsor.html'},
   {name: 'Conduct', hash: 'conduct', url: 'conduct.html'},
   {name: 'Past Events', hash: 'past', url: 'past.html'},
 ];
