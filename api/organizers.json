@@ -2,17 +2,9 @@
   {
     "uid": 1,
     "text" : "Director of Advancement IT at Macalester College",
-    "username" : "Lloyd Cledwyn",
+    "username" : "Lloyd Lentz",
     "gplusid":"LloydCledwyn",
     "avatar" : "https://lh3.googleusercontent.com/-pRtbphj2rLk/AAAAAAAAAAI/AAAAAAAA0Bc/vetOzV64wwg/s120-c/photo.jpg",
-    "favorite": false
-  },
-  {
-    "uid": 2,
-    "text" : "Developer Advocate at Trello",
-    "username" : "Stephen Fluin",
-    "gplusid":"StephenFluin",
-    "avatar" : "https://lh4.googleusercontent.com/-JZSee_uuOJE/AAAAAAAAAAI/AAAAAAAA7qs/eP3LP_qLikk/s120-c/photo.jpg",
     "favorite": false
   },
   {
@@ -29,6 +21,14 @@
     "username" : "Patrick Fuentes",
     "gplusid":"PatrickFuentes",
     "avatar" : "https://lh3.googleusercontent.com/-MWrr1zCpEz8/UhzE4PlkrPI/AAAAAAAAA0Y/Ip_8AKA6lP4/w401-h400-no/vx.png",
+    "favorite": false
+  },
+  {
+    "uid": 5,
+    "text" : "Owner at Ninja Media International",
+    "username" : "Valerie Lockhart",
+    "gplusid" : "ValerieLockhart",
+    "avatar": "https://lh3.googleusercontent.com/IMOeBCsnWuyvIrnZFbBmi7MXHtnTO-L1T3dStmDyUaVpNgeOaKb9MSPoKzNnlt4F5CISKSgLJEAn8A",
     "favorite": false
   }
 ]
